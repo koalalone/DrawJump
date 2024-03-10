@@ -1,0 +1,4 @@
+repository "DrawJump@Koalalone@cloud"
+  path "/"
+    br "/main"
+    co "/main"
