@@ -5,7 +5,6 @@ using UnityEngine;
 public class Scroll : MonoBehaviour
 {
     public float scrollSpeed = 1f;
-    public GameObject objectToSpawn;
     public GameObject player;
     public Vector2 startPos;
 
