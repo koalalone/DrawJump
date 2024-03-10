@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class Scroll : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public float scrollSpeed = 1f;
+    public GameObject objectToSpawn;
+    public GameObject player;
+    public Vector2 startPos;
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (player.transform.position.y > transform.position.y + 10)
+        {
+            transform.position = new Vector3(transform.position.x, player.transform.position.y, transform.position.z);
+        }
     }
 }

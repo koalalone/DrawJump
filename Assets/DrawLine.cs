@@ -23,13 +23,14 @@ public class DrawLine : MonoBehaviour
         lineRenderer.positionCount = 0;
         lineRenderer.startWidth = lineRenderer.endWidth = lineWidth;
 
-        edgeCollider = gameObject.AddComponent<EdgeCollider2D>();
+        
     }
 
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
+            edgeCollider = gameObject.AddComponent<EdgeCollider2D>();
             StartNewLine();
         }
 
