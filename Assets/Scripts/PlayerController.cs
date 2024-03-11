@@ -5,7 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-    public float jumpForce = 3f;
+    public float groundJumpForce = 5f;
+    public float lineJumpForce = 10f;
 
     public Animator animator;
 
@@ -23,7 +24,13 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.tag == "Ground")
         {
             //animator.SetTrigger("Jump");
-            GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            GetComponent<Rigidbody2D>().AddForce(Vector2.up * groundJumpForce, ForceMode2D.Impulse);
+        }
+
+        if (collision.gameObject.tag == "Line")
+        {
+            //animator.SetTrigger("Jump");
+            GetComponent<Rigidbody2D>().AddForce(Vector2.up * lineJumpForce, ForceMode2D.Impulse);
         }
 
         if (collision.gameObject.tag == "Side")

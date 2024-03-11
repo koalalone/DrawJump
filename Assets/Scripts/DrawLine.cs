@@ -7,9 +7,8 @@ using UnityEngine;
 public class DrawLine : MonoBehaviour
 {
     public LineRenderer lineRenderer;
-    public float lineWidth = 0.1f;
     public float minDistance = 0.1f;
-    public Color defaultColor = Color.cyan;
+    public Color defaultColor = Color.black;
     public float defaultWidth = 0.1f;
 
     private List<LineRenderer> lines = new List<LineRenderer>();
@@ -21,9 +20,8 @@ public class DrawLine : MonoBehaviour
     {
         lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.positionCount = 0;
-        lineRenderer.startWidth = lineRenderer.endWidth = lineWidth;
+        lineRenderer.startColor = lineRenderer.endColor = defaultColor;
 
-        
     }
 
     void Update()
@@ -44,8 +42,9 @@ public class DrawLine : MonoBehaviour
     {
         LineRenderer newLineRenderer = new GameObject().AddComponent<LineRenderer>();
         newLineRenderer.transform.parent = transform;
-        newLineRenderer.startWidth = newLineRenderer.endWidth = defaultWidth;
-        newLineRenderer.material = lineRenderer.material;
+        //newLineRenderer.startWidth = newLineRenderer.endWidth = defaultWidth;
+        newLineRenderer = lineRenderer;
+        newLineRenderer.material.color = defaultColor;
 
         lines.Add(newLineRenderer);
         lineColors.Add(defaultColor);
@@ -117,14 +116,7 @@ public class DrawLine : MonoBehaviour
         lineWidths.Clear();
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            Console.Write("player");
-            collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 10);
-        }
-    }
+    
 
     void UpdateCollider()
     {

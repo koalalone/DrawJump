@@ -15,7 +15,7 @@ public class Scroll : MonoBehaviour
 
     void Update()
     {
-        if (player.transform.position.y > transform.position.y + 10)
+        if (player.transform.position.y > transform.position.y + 5)
         {
             transform.position = new Vector3(transform.position.x, player.transform.position.y, transform.position.z);
         }
