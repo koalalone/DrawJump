@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -30,13 +31,14 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.tag == "Line")
         {
             //animator.SetTrigger("Jump");
-            GetComponent<Rigidbody2D>().AddForce(Vector2.up * lineJumpForce, ForceMode2D.Impulse);
+            ContactPoint2D contact = collision.GetContact(0);
+            GetComponent<Rigidbody2D>().AddForce(contact.normal * lineJumpForce, ForceMode2D.Impulse);
         }
 
         if (collision.gameObject.tag == "Side")
         {
-            Vector2 speed = GetComponent<Rigidbody2D>().velocity;
-            GetComponent<Rigidbody2D>().velocity = new Vector2(-speed.x, speed.y);
+            ContactPoint2D contact = collision.GetContact(0);
+            GetComponent<Rigidbody2D>().AddForce(contact.normal, ForceMode2D.Impulse);
     }
     }
 }

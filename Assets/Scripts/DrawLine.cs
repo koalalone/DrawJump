@@ -21,14 +21,14 @@ public class DrawLine : MonoBehaviour
         lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.positionCount = 0;
         lineRenderer.startColor = lineRenderer.endColor = defaultColor;
-
+        edgeCollider = GetComponent<EdgeCollider2D>();
     }
 
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            edgeCollider = gameObject.AddComponent<EdgeCollider2D>();
+            edgeCollider.enabled = true;
             StartNewLine();
         }
 
@@ -36,24 +36,24 @@ public class DrawLine : MonoBehaviour
         {
             UpdateLine();
         }
+
     }
 
     void StartNewLine()
     {
-        LineRenderer newLineRenderer = new GameObject().AddComponent<LineRenderer>();
-        newLineRenderer.transform.parent = transform;
-        //newLineRenderer.startWidth = newLineRenderer.endWidth = defaultWidth;
-        newLineRenderer = lineRenderer;
-        newLineRenderer.material.color = defaultColor;
+        //LineRenderer newLineRenderer = new GameObject().AddComponent<LineRenderer>();
+        //newLineRenderer.transform.parent = transform;
+        //newLineRenderer = lineRenderer;
+        //newLineRenderer.material.color = defaultColor;
 
-        lines.Add(newLineRenderer);
+        lines.Add(lineRenderer);
         lineColors.Add(defaultColor);
         lineWidths.Add(defaultWidth);
 
         Vector3 currentPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         currentPosition.z = 0f;
-        newLineRenderer.positionCount = 1;
-        newLineRenderer.SetPosition(0, currentPosition);
+        lineRenderer.positionCount = 1;
+        lineRenderer.SetPosition(0, currentPosition);
 
         edgeCollider.points = new Vector2[] { currentPosition, currentPosition };
     }
@@ -123,12 +123,12 @@ public class DrawLine : MonoBehaviour
         // EdgeCollider2D'yi temizle
         edgeCollider.points = new Vector2[0];
 
-        // Her bir çizgi noktasý için bir collider noktasý ekle
+        /* Her bir çizgi noktasý için bir collider noktasý ekle
         for (int i = 0; i < lineRenderer.positionCount; i++)
         {
             Vector3 position = lineRenderer.GetPosition(i);
             Vector2 point = new Vector2(position.x, position.y);
             edgeCollider.points = (Vector2[])edgeCollider.points.Append(point);
-        }
+        }*/
     }
 }
