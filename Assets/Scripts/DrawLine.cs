@@ -7,9 +7,10 @@ using UnityEngine;
 public class DrawLine : MonoBehaviour
 {
     public LineRenderer lineRenderer;
-    public float minDistance = 0.1f;
-    public Color defaultColor = Color.black;
-    public float defaultWidth = 0.1f;
+    public Material lineMaterial;
+    private float minDistance = 0.1f;
+    private Color defaultColor = Color.black;
+    private float defaultWidth = 0.1f;
 
     private List<LineRenderer> lines = new List<LineRenderer>();
     private List<Color> lineColors = new List<Color>();
@@ -20,7 +21,7 @@ public class DrawLine : MonoBehaviour
     {
         lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.positionCount = 0;
-        lineRenderer.startColor = lineRenderer.endColor = defaultColor;
+        lineMaterial.color = defaultColor;
         edgeCollider = GetComponent<EdgeCollider2D>();
     }
 
@@ -35,6 +36,11 @@ public class DrawLine : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             UpdateLine();
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            lineMaterial.color = Color.red;
         }
 
     }

@@ -12,7 +12,7 @@ public class Score : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        scoreText.text = string.Empty;
+        //scoreText.text = string.Empty;
     }
 
     // Update is called once per frame

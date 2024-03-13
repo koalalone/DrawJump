@@ -418,8 +418,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.02, y: 162}
-  m_SizeDelta: {x: 195.23, y: 50}
+  m_AnchoredPosition: {x: 0.37, y: 164.7}
+  m_SizeDelta: {x: 199.9, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &415302979
 CanvasRenderer:
@@ -441,7 +441,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 9a3ebf3b5013d60438e48c90391454c5, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.13207549, g: 0.13207549, b: 0.13207549, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -750,7 +750,7 @@ Transform:
   m_GameObject: {fileID: 445298113}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.06, y: 0.86, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -770,6 +770,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundJumpForce: 5
   lineJumpForce: 10
+  gameManager: {fileID: 1846895259}
   animator: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
@@ -872,9 +873,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0
-    width: 1
-    height: 1
+    y: 0.0011422045
+    width: 0.99999994
+    height: 0.9985122
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -931,7 +932,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c88f5cead0c0b2a4eb05b5900433f8d1, type: 3}
   m_Name: 
@@ -940,7 +941,7 @@ MonoBehaviour:
   m_AssetsPPU: 61
   m_RefResolutionX: 233
   m_RefResolutionY: 414
-  m_CropFrame: 0
+  m_CropFrame: 4
   m_GridSnapping: 0
   m_FilterMode: 0
   m_UpscaleRT: 0
@@ -1112,6 +1113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 445298113}
   startPos: {x: 0, y: 0}
+  gameManager: {fileID: 1846895259}
 --- !u!1 &925130549
 GameObject:
   m_ObjectHideFlags: 0
@@ -1197,7 +1199,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1107224503
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1271,7 +1273,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1434824817
 Transform:
   m_ObjectHideFlags: 0
@@ -1281,7 +1283,7 @@ Transform:
   m_GameObject: {fileID: 1434824816}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.3, y: -1.15, z: 0}
+  m_LocalPosition: {x: 10.3, y: -1.2, z: 0}
   m_LocalScale: {x: 0.3645833, y: 0.3645833, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1339,6 +1341,56 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1556041361
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1556041363}
+  - component: {fileID: 1556041362}
+  m_Layer: 0
+  m_Name: Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1556041362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1556041361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dcda864caab1004280211181ece1c00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bombaPrefab: {fileID: 9100417989452822109, guid: 0724ab3589c5bfc468c59a5d97e68b91, type: 3}
+  roketPrefab: {fileID: 7393830755571720224, guid: 6b5092b21214ef14f9a39a5292d3b5d7, type: 3}
+  player: {fileID: 445298113}
+  bombaSpawnOrani: 0.8
+  roketSpawnOrani: 0.2
+  spawnGecikmesi: 5
+--- !u!4 &1556041363
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1556041361}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1683046526
 GameObject:
   m_ObjectHideFlags: 0
@@ -1442,6 +1494,51 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1846895258
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1846895260}
+  - component: {fileID: 1846895259}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1846895259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1846895258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ab6fa744a91e1d41a4c3b54b363bc57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 445298113}
+--- !u!4 &1846895260
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1846895258}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.7593845, y: 1.481872, z: 0.8709908}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1974836815
 GameObject:
   m_ObjectHideFlags: 0
@@ -1458,7 +1555,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1974836816
 Transform:
   m_ObjectHideFlags: 0
@@ -1468,7 +1565,7 @@ Transform:
   m_GameObject: {fileID: 1974836815}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.3, y: 5.7, z: 0}
+  m_LocalPosition: {x: 10.3, y: 5.65, z: 0}
   m_LocalScale: {x: 7, y: 7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1558,9 +1655,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lineRenderer: {fileID: 2005316586}
-  minDistance: 0.1
-  defaultColor: {r: 0.13207549, g: 0.13207549, b: 0.13207549, a: 1}
-  defaultWidth: 0.2
+  lineMaterial: {fileID: 2100000, guid: 9a3ebf3b5013d60438e48c90391454c5, type: 2}
 --- !u!120 &2005316586
 LineRenderer:
   serializedVersion: 2
@@ -1614,7 +1709,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.2
+        value: 0.1
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -1623,7 +1718,7 @@ LineRenderer:
         outWeight: 0.20445064
       - serializedVersion: 3
         time: 0.5
-        value: 0.2
+        value: 0.1
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -1632,10 +1727,10 @@ LineRenderer:
         outWeight: 0
       - serializedVersion: 3
         time: 1
-        value: 0.2
-        inSlope: 0
+        value: 0.1
+        inSlope: -0
         outSlope: 0
-        tangentMode: 0
+        tangentMode: 5
         weightedMode: 0
         inWeight: 0.31571627
         outWeight: 0
@@ -1644,8 +1739,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.13207549, g: 0.13207549, b: 0.13207549, a: 1}
-      key1: {r: 0.13207549, g: 0.13207549, b: 0.13207549, a: 1}
+      key0: {r: 1, g: 1, b: 1, a: 1}
+      key1: {r: 1, g: 1, b: 1, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -1751,3 +1846,5 @@ SceneRoots:
   - {fileID: 721368519}
   - {fileID: 1683046530}
   - {fileID: 925130552}
+  - {fileID: 1556041363}
+  - {fileID: 1846895260}

@@ -7,6 +7,8 @@ TagManager:
   - Ground
   - Side
   - Line
+  - Rocket
+  - Bomb
   layers:
   - Default
   - TransparentFX
