@@ -10,13 +10,10 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        // Oyun bitti mi kontrolü
         if (gameOver)
         {
-            // Yeniden baþlatma tuþuna basýldý mý kontrolü
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                // Oyunu yeniden baþlat
                 Restart();
             }
         }
@@ -26,6 +23,7 @@ public class GameManager : MonoBehaviour
     {
         gameOver = false;
         SceneManager.LoadScene(0);
+        Time.timeScale = 1.0f;
     }
 
     public void EndGame()

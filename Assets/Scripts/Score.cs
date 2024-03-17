@@ -18,11 +18,15 @@ public class Score : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        score = player.transform.position.y;
-        if(score > maxScore)
+        if (player)
         {
-            maxScore = score;
-            scoreText.text = player.transform.position.y.ToString("F2") + " m";
+            score = player.transform.position.y;
+            if (score > maxScore)
+            {
+                maxScore = score;
+                scoreText.text = player.transform.position.y.ToString("F2") + " m";
+            }
         }
+        
     }
 }

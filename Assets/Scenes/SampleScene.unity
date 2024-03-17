@@ -686,8 +686,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2}
+  m_Offset: {x: -0.03458923, y: -0.088158846}
+  m_Size: {x: 0.93082154, y: 2.1763177}
   m_Direction: 0
 --- !u!212 &445298116
 SpriteRenderer:
@@ -730,8 +730,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
-  m_Color: {r: 0.16226411, g: 0.16226411, b: 0.16226411, a: 1}
+  m_Sprite: {fileID: 21300000, guid: c0c5eddfab6ddf547a9aadd62e41120f, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -873,9 +873,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.0011422045
-    width: 0.99999994
-    height: 0.9985122
+    y: 0
+    width: 1
+    height: 0.9993363
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -1370,12 +1370,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dcda864caab1004280211181ece1c00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bombaPrefab: {fileID: 9100417989452822109, guid: 0724ab3589c5bfc468c59a5d97e68b91, type: 3}
-  roketPrefab: {fileID: 7393830755571720224, guid: 6b5092b21214ef14f9a39a5292d3b5d7, type: 3}
+  bombPrefab: {fileID: 9100417989452822109, guid: 0724ab3589c5bfc468c59a5d97e68b91, type: 3}
+  rocketPrefab: {fileID: 7393830755571720224, guid: 6b5092b21214ef14f9a39a5292d3b5d7, type: 3}
+  coinPrefab: {fileID: 2208324700695691762, guid: fba690ffe94aa0f4cad96d50111f57cc, type: 3}
   player: {fileID: 445298113}
-  bombaSpawnOrani: 0.8
-  roketSpawnOrani: 0.2
-  spawnGecikmesi: 5
+  bombaSpawnOrani: 0.2
+  roketSpawnOrani: 0.4
+  spawnCooldown: 5
 --- !u!4 &1556041363
 Transform:
   m_ObjectHideFlags: 0

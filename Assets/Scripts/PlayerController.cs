@@ -43,17 +43,30 @@ public class PlayerController : MonoBehaviour
             case "Side":
                 GetComponent<Rigidbody2D>().AddForce(contact.normal, ForceMode2D.Impulse);
                 break;
+            default:       
+                break;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        switch (collision.gameObject.tag)
+        {
             case "Bomb":
                 Destroy(collision.gameObject);
                 gameManager.EndGame();
                 break;
             case "Rocket":
                 Destroy(collision.gameObject);
-                GetComponent<Rigidbody2D>().AddForce(Vector2.up * 100f, ForceMode2D.Impulse);
+                //GetComponent<Rigidbody2D>().AddForce(Vector2.up * 20f, ForceMode2D.Impulse);
+                GetComponent<Rigidbody2D>().velocity = Vector2.up * 20f;
+                break;
+            case "Coin":
+                Destroy(collision.gameObject);
+                //score.addCoin
                 break;
             default:
-                // Çarpýþan nesne bilinen bir tag'e sahip deðilse hiçbir þey yapma
                 break;
         }
-    }
+    }           
 }

@@ -11,12 +11,16 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        height = player.transform.position.y;
-        if (height > transform.position.y & height > 1f)
+        if (player)
         {
+            height = player.transform.position.y;
+            if (height > transform.position.y & height > 1f)
+            {
                 Vector3 desiredPosition = new Vector3(transform.position.x, player.position.y, transform.position.z);
                 Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
                 transform.position = smoothedPosition;
-        }    
+            }
+        }
+           
     }
 }
