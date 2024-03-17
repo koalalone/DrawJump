@@ -7,12 +7,15 @@ public class Score : MonoBehaviour
 {
     public GameObject player;
     public Text scoreText;
+    public Text coinText;
+    int coinAmount = 0;
     float maxScore = 0f;
     float score = 0f;
-    // Start is called before the first frame update
-    void Start()
+
+    public void Start()
     {
-        //scoreText.text = string.Empty;
+        coinAmount = PlayerPrefs.GetInt("Coin", 0);
+        coinText.text = coinAmount.ToString();
     }
 
     // Update is called once per frame
@@ -26,7 +29,14 @@ public class Score : MonoBehaviour
                 maxScore = score;
                 scoreText.text = player.transform.position.y.ToString("F2") + " m";
             }
-        }
-        
+        }   
     }
+
+    public void AddCoin(int amount)
+    {
+        coinAmount += amount;
+        PlayerPrefs.SetInt("Coin", coinAmount);
+        coinText.text = coinAmount.ToString();
+    }
+
 }

@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     
     public GameManager gameManager;
     public Animator animator;
+    public Score score;
 
     private void Start()
     {
@@ -57,13 +58,12 @@ public class PlayerController : MonoBehaviour
                 gameManager.EndGame();
                 break;
             case "Rocket":
-                Destroy(collision.gameObject);
-                //GetComponent<Rigidbody2D>().AddForce(Vector2.up * 20f, ForceMode2D.Impulse);
                 GetComponent<Rigidbody2D>().velocity = Vector2.up * 20f;
+                Destroy(collision.gameObject);
                 break;
             case "Coin":
+                score.AddCoin(1);
                 Destroy(collision.gameObject);
-                //score.addCoin
                 break;
             default:
                 break;
