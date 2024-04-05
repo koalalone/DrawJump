@@ -47,11 +47,6 @@ public class DrawLine : MonoBehaviour
 
     void StartNewLine()
     {
-        //LineRenderer newLineRenderer = new GameObject().AddComponent<LineRenderer>();
-        //newLineRenderer.transform.parent = transform;
-        //newLineRenderer = lineRenderer;
-        //newLineRenderer.material.color = defaultColor;
-
         lines.Add(lineRenderer);
         lineColors.Add(defaultColor);
         lineWidths.Add(defaultWidth);

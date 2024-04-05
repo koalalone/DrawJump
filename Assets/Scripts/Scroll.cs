@@ -8,10 +8,6 @@ public class Scroll : MonoBehaviour
     public Vector2 startPos;
     public GameManager gameManager;
 
-    void Start()
-    {
-
-    }
 
     void Update()
     {

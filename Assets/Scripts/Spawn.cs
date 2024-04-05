@@ -10,47 +10,47 @@ public class Spawn : MonoBehaviour
     public GameObject coinPrefab;
     public GameObject player;
 
-    public float bombaSpawnOrani = 0.2f;
-    public float roketSpawnOrani = 0.4f;
+    public float bombSpawnRate = 0.4f;
+    public float rocketSpawnRate = 0.8f;
 
-    public float spawnCooldown = 5.0f;
-
+    private float spawnCooldown;
     private float lastSpawnTime;
 
     void Update()
     {
+        spawnCooldown = Random.Range(3.0f, 5.0f);
 
         if (Time.time - lastSpawnTime >= spawnCooldown)
         {
 
-            float rastgeleSayi = Random.Range(0.0f, 1.0f);
+            float randomNumber = Random.Range(0.0f, 1.0f);
 
-            if (rastgeleSayi < bombaSpawnOrani)
+            if (randomNumber < bombSpawnRate)
             {
-                SpawnNesne(bombPrefab);
+                SpawnObject(bombPrefab);
             }
-            else if (rastgeleSayi < roketSpawnOrani)
+            else if (randomNumber < rocketSpawnRate)
             {
-                SpawnNesne(rocketPrefab);
+                SpawnObject(rocketPrefab);
             }
             else
             {
-                SpawnNesne(coinPrefab);
+                SpawnObject(coinPrefab);
             }
 
             lastSpawnTime = Time.time;
         }
     }
 
-    private void SpawnNesne(GameObject nesnePrefab)
+    private void SpawnObject(GameObject spawnPrefab)
     {
         Vector3 playerAt = player.transform.position;
 
-        Vector3 spawnKonumu = new Vector3(Random.Range(-1.5f, 1.5f),
+        Vector3 spawnLocation = new Vector3(Random.Range(-1.5f, 1.5f),
                                           playerAt.y + Random.Range(2f, 3f), 
                                           0.0f);
 
-        GameObject nesne = Instantiate(nesnePrefab, spawnKonumu, Quaternion.identity);
-        nesne.transform.parent = transform;
+        GameObject spawnedObject = Instantiate(spawnPrefab, spawnLocation, Quaternion.identity);
+        spawnedObject.transform.parent = transform;
     }
 }

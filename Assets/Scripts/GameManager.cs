@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     private bool gameOver = false;
     public GameObject player;
+    public GameObject gameOverMenu;
 
     void Update()
     {
@@ -19,9 +20,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void Restart()
+    public void Restart()
     {
         gameOver = false;
+        gameOverMenu.SetActive(false);
         SceneManager.LoadScene(0);
         Time.timeScale = 1.0f;
     }
@@ -31,5 +33,6 @@ public class GameManager : MonoBehaviour
         gameOver = true;
         Destroy(player.gameObject);
         Time.timeScale = 0;
+        gameOverMenu.SetActive(true);
     }
 }
