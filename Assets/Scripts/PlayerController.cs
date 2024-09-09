@@ -20,9 +20,11 @@ public class PlayerController : MonoBehaviour
         switch (collision.gameObject.tag)
         {
             case "Ground":
+                FindObjectOfType<AudioManager>().Play("Jump");
                 GetComponent<Rigidbody2D>().AddForce(Vector2.up * groundJumpForce, ForceMode2D.Impulse);
                 break;
             case "Line":
+                FindObjectOfType<AudioManager>().Play("Jump");
                 GetComponent<Rigidbody2D>().AddForce(contact.normal * lineJumpForce, ForceMode2D.Impulse);
                 break;
             case "Side":
@@ -38,14 +40,17 @@ public class PlayerController : MonoBehaviour
         switch (collision.gameObject.tag)
         {
             case "Bomb":
+                FindObjectOfType<AudioManager>().Play("Bomb");
                 Destroy(collision.gameObject);
                 gameManager.EndGame();
                 break;
             case "Rocket":
+                FindObjectOfType<AudioManager>().Play("Rocket");
                 GetComponent<Rigidbody2D>().velocity = Vector2.up * rocketVelocity;
                 Destroy(collision.gameObject);
                 break;
             case "Coin":
+                FindObjectOfType<AudioManager>().Play("Coin");
                 score.AddCoin(1);
                 Destroy(collision.gameObject);
                 break;

@@ -8,13 +8,16 @@ public class Score : MonoBehaviour
     public GameObject player;
     public Text scoreText;
     public Text coinText;
+    public Text highScoreText;
     int coinAmount = 0;
+    float highScore = 0f;
     float maxScore = 0f;
     float score = 0f;
 
     public void Start()
     {
         coinAmount = PlayerPrefs.GetInt("Coin", 0);
+        highScore = PlayerPrefs.GetFloat("HighScore", 0);
         coinText.text = coinAmount.ToString();
     }
 
@@ -28,8 +31,19 @@ public class Score : MonoBehaviour
             {
                 maxScore = score;
                 scoreText.text = player.transform.position.y.ToString("F2") + " m";
+                SaveHighScore();
             }
         }   
+    }
+
+    public void SaveHighScore()
+    {
+        if(maxScore > highScore)
+        {
+            highScore = maxScore;
+            PlayerPrefs.SetFloat("HighScore", highScore);
+        }
+        highScoreText.text = "High Score: " + highScore.ToString("F2") + " m";
     }
 
     public void AddCoin(int amount)
